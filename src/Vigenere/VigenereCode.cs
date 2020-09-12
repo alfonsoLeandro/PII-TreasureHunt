@@ -29,6 +29,7 @@ namespace Vigenere.Library
                 //Se encripta el valor aplicando el desplazamiento
                 string encrypted = Shift(keyPosition + salt, valueToEncrypt);
                 //Se agrega el resultado a la cadena encriptada
+                //Estaba agrenado la letra a encriptar en vez de el valor encriptado.
                 decrypted.Append(encrypted);
             }
             return decrypted.ToString();
@@ -66,9 +67,12 @@ namespace Vigenere.Library
 
         /// <summary>
         /// Returns an index between 0-26
+        /// 
+        /// Hice este método porque no entendi muy bien el tema del
+        /// shift % fullAlphabet#Lenght
         /// </summary>
         /// <param name="index">The raw shifted index</param>
-        /// <returns></returns>
+        /// <returns>An index between 0 and 26</returns>
         private int getNumberShifted(int index){
             if(index < 26){
                return index; 
